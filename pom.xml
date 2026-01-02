@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 
+    📚 JAVA CORE: GroupId, ArtifactId, Version = Maven coordinates (tọa độ)
+    Giống như địa chỉ duy nhất cho project này
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.1</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.vien</groupId>
+    <artifactId>portfolio-springboot</artifactId>
+    <version>1.0.0</version>
+    <name>Infinite Portfolio</name>
+    <description>Interactive Portfolio with Spring Boot and GSAP</description>
+
+    <properties>
+        <!-- 
+        📚 JAVA CORE: Properties định nghĩa biến tái sử dụng
+        java.version = 17 nghĩa là compile code với Java 17
+        -->
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- 
+        📚 SPRING BOOT: Dependencies = Thư viện cần thiết
+        Spring tự động tải và quản lý các thư viện này
+        -->
+        
+        <!-- 
+        Spring Boot Web Starter:
+        - Embedded Tomcat server (chạy web không cần cài Tomcat)
+        - Spring MVC (Model-View-Controller)
+        - REST API support (Jackson for JSON)
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 
+        Thymeleaf Template Engine:
+        - Render HTML động từ server
+        - Tích hợp tốt với Spring Boot
+        - Syntax giống HTML, dễ học
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!-- 
+        Spring Boot DevTools:
+        - Auto-reload: Tự động restart khi code thay đổi
+        - LiveReload: Tự động refresh browser
+        - Development-only: Không chạy ở production
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 
+            Spring Boot Maven Plugin:
+            - Đóng gói application thành JAR file
+            - Cho phép chạy: mvnw spring-boot:run
+            -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 Infinite Portfolio - Spring Boot + GSAP</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Draggable.min.js"></script>
+</head>
+
+<body>
+    <!-- Background Particles -->
+    <canvas id="bgParticles" class="bg-particles"></canvas>
+
+    <!-- Game Controls Instructions -->
+    <div class="controls-hint">
+        <h3>🎮 Game Controls</h3>
+        <p><strong>Move:</strong> WASD or Arrow Keys</p>
+        <p><strong>Interact:</strong> SPACE (when near project)</p>
+        <p><strong>Fast Travel:</strong> Click navigation menu</p>
+    </div>
+
+    <!-- Mini-Map -->
+    <div class="mini-map">
+        <canvas id="miniMapCanvas" width="200" height="200"></canvas>
+    </div>
+
+    <!-- Navigation Menu (Mini-map style) -->
+    <nav class="nav-menu">
+        <div class="nav-brand">
+            <h1>🌍 Portfolio Journey</h1>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <!-- Will be populated by JavaScript from API data -->
+            <p class="loading">⏳ Loading world...</p>
+        </div>
+    </nav>
+
+    <!-- Draggable Canvas Container -->
+    <div class="canvas-container">
+        <!-- Trail Canvas (underneath everything) -->
+        <canvas class="trail-canvas" id="trailCanvas"></canvas>
+
+        <div class="canvas" id="canvas">
+            <!-- Projects will be dynamically inserted here -->
+            <div class="center-marker">
+                <div class="marker-ring"></div>
+                <div class="marker-dot"></div>
+                <p>🎯 Start Here</p>
+            </div>
+
+            <!-- Character -->
+            <div class="character" id="character">
+                <div class="character-body">🚗</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interaction Prompt -->
+    <div class="interaction-prompt" id="interactionPrompt">
+        <p>Press <strong>SPACE</strong> to explore project</p>
+        <p class="project-name" id="nearbyProjectName"></p>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
