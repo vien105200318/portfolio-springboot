@@ -18,7 +18,8 @@ WORKDIR /app
 COPY --from=build /app/target/portfolio-springboot-1.0.0.jar app.jar
 
 # Configuration
+ENV PORT=8080
 EXPOSE 8080
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT} -jar app.jar"]
