@@ -1,5 +1,5 @@
 # --- STAGE 1: Build ---
-FROM maven:3.8.4-openjdk-17-slim AS build
+FROM maven:3.8.5-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copy pom.xml and download dependencies (cache layer)
@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # --- STAGE 2: Run ---
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # Copy the JAR from build stage
